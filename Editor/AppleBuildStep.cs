@@ -45,34 +45,38 @@ namespace Apple.Core
         /// <param name="buildTarget"></param>
         /// <param name="pathToBuiltTarget"></param>
         /// <param name="infoPlist"></param>
+#if UNITY_EDITOR_OSX || UNITY_IOS
         public virtual void OnProcessInfoPlist(AppleBuildProfile appleBuildProfile, BuildTarget buildTarget, string pathToBuiltTarget, PlistDocument infoPlist) { }
-
-        /// <summary>
-        /// Called when steps should modifiy entitlements.
-        /// </summary>
-        /// <param name="appleBuildProfile"></param>
-        /// <param name="buildTarget"></param>
-        /// <param name="pathToBuiltTarget"></param>
-        /// <param name="entitlements"></param>
+#endif
+/// <summary>
+/// Called when steps should modifiy entitlements.
+/// </summary>
+/// <param name="appleBuildProfile"></param>
+/// <param name="buildTarget"></param>
+/// <param name="pathToBuiltTarget"></param>
+/// <param name="entitlements"></param>
+#if UNITY_EDITOR_OSX || UNITY_IOS
         public virtual void OnProcessEntitlements(AppleBuildProfile appleBuildProfile, BuildTarget buildTarget, string pathToBuiltTarget, PlistDocument entitlements) { }
-
-        /// <summary>
-        /// Called when steps should modify or copy frameworks over. PBXProject is supplied on all platforms; only mac if xcode generated.
-        /// </summary>
-        /// <param name="appleBuildProfile"></param>
-        /// <param name="buildTarget"></param>
-        /// <param name="pathToBuiltTarget"></param>
-        /// <param name="pBXProject"></param>
+#endif
+/// <summary>
+/// Called when steps should modify or copy frameworks over. PBXProject is supplied on all platforms; only mac if xcode generated.
+/// </summary>
+/// <param name="appleBuildProfile"></param>
+/// <param name="buildTarget"></param>
+/// <param name="pathToBuiltTarget"></param>
+/// <param name="pBXProject"></param>
+#if UNITY_EDITOR_OSX || UNITY_IOS
         public virtual void OnProcessFrameworks(AppleBuildProfile appleBuildProfile, BuildTarget buildTarget, string pathToBuiltTarget, PBXProject pBXProject) { }
-
-        /// <summary>
-        /// Called whenever a step calls AppleBuild.ProcessExportPlistOptions; and is called to manipulate the generated exportPlistOptions.
-        /// </summary>
-        /// <param name="appleBuildProfile"></param>
-        /// <param name="buildTarget"></param>
-        /// <param name="exportPlistOptions"></param>
+#endif
+/// <summary>
+/// Called whenever a step calls AppleBuild.ProcessExportPlistOptions; and is called to manipulate the generated exportPlistOptions.
+/// </summary>
+/// <param name="appleBuildProfile"></param>
+/// <param name="buildTarget"></param>
+/// <param name="exportPlistOptions"></param>
+#if UNITY_EDITOR_OSX || UNITY_IOS
         public virtual void OnProcessExportPlistOptions(AppleBuildProfile appleBuildProfile, BuildTarget buildTarget, string pathToBuiltProject, PlistDocument exportPlistOptions) { }
-
+#endif
         /// <summary>
         /// Called on all steps, in-order, as a final post process command. Any final signatures can be done here (if last step).
         /// </summary>

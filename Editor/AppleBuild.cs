@@ -101,8 +101,10 @@ namespace Apple.Core
                 {
                     if (buildStep.Value.IsEnabled)
                     {
+                        #if UNITY_EDITOR_OSX || UNITY_IOS
                         Debug.Log($"AppleBuild: OnProcessInfoPlist for step: {buildStep.Key}");
                         buildStep.Value.OnProcessInfoPlist(appleBuildProfile, buildTarget, pathToBuiltProject, infoPlist);
+                        #endif
                     }
                 }
 
@@ -111,7 +113,7 @@ namespace Apple.Core
                 Debug.Log($"AppleBuild: OnProcessInfoPlist end...");
             }
 
-            #endregion // Process info.plist
+#endregion // Process info.plist
 
             #region Process Entitlements
 
@@ -158,8 +160,10 @@ namespace Apple.Core
                 {
                     if (buildStep.Value.IsEnabled)
                     {
+                        #if UNITY_EDITOR_OSX || UNITY_IOS
                         Debug.Log($"AppleBuild: OnProcessEntitlements for step: {buildStep.Key}");
                         buildStep.Value.OnProcessEntitlements(appleBuildProfile, buildTarget, pathToBuiltProject, entitlements);
+                        #endif
                     }
                 }
 
@@ -181,7 +185,7 @@ namespace Apple.Core
                 Debug.Log($"AppleBuild: OnProcessEntitlements end.");
             }
 
-            #endregion // Process Entitlements
+#endregion // Process Entitlements
 
             #region Process Frameworks
 
@@ -191,8 +195,10 @@ namespace Apple.Core
             {
                 if (buildStep.Value.IsEnabled)
                 {
+                    #if UNITY_EDITOR_OSX || UNITY_IOS
                     Debug.Log($"AppleBuild: OnProcessFrameworks for step: {buildStep.Key}");
                     buildStep.Value.OnProcessFrameworks(appleBuildProfile, buildTarget, pathToBuiltProject, pbxProject);
+                    #endif
                 }
             }
 
@@ -203,7 +209,7 @@ namespace Apple.Core
 
             Debug.Log($"AppleBuild: OnProcessFrameworks end.");
 
-            #endregion // Process Frameworks
+#endregion // Process Frameworks
 
             #region Finalize Post Process
 
@@ -411,14 +417,16 @@ namespace Apple.Core
             {
                 if (buildStep.Value.IsEnabled)
                 {
+                    #if UNITY_EDITOR_OSX || UNITY_IOS
                     buildStep.Value.OnProcessExportPlistOptions(appleBuildProfile, buildTarget, pathToBuiltProject, exportPlistOptions);
+                    #endif
                 }
             }
 
             Debug.Log($"AppleBuild: ProcessExportPlistOptions end.");
         }
 
-        #endregion // Public Utility Methods
+#endregion // Public Utility Methods
 
     }
 }
